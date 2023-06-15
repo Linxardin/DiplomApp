@@ -1,0 +1,12 @@
+.width{
+    max-width: 600px;
+}
+
+.btn-cl{
+    --bs-btn-bg: #04b065 !important;
+    --bs-btn-border-color:#04b065 !important;
+    --bs-btn-hover-bg: #049e5b !important;
+    --bs-btn-hover-border-color:#049e5b !important;
+    --bs-btn-active-bg:#037b47 !important;
+    --bs-btn-active-border-color:#037b47 !important;
+}

@@ -1,0 +1,72 @@
+.container-main{
+    max-width: 1180px;
+}
+.card-main{
+    border: none
+}
+
+.text-w-600{
+    font-weight: 600;
+}
+
+.text-color-demigray{
+    color: dimgray;
+}
+
+.card-info{
+    background-color: gainsboro; 
+    border: none;
+}
+.sticky{
+    top: 10px !important;
+}
+
+.mw{
+    width: 820px !important;
+    height: 470px !important;
+}
+
+.mh{
+height: 400px !important;
+}
+
+.icon-d{
+    color: white; 
+    margin-right: 4px;
+}
+
+.text-main{
+    text-align: justify; 
+    font-size: 14px;
+}
+
+.carousel-w{
+    max-width: 700px;
+}
+
+.dView{
+    width:auto;
+    height:450px; 
+    border:none;
+}
+
+.btn-cl{
+    --bs-btn-bg: #04b065 !important;
+    --bs-btn-border-color:#04b065 !important;
+    --bs-btn-hover-bg: #049e5b !important;
+    --bs-btn-hover-border-color:#049e5b !important;
+    --bs-btn-active-bg:#037b47 !important;
+    --bs-btn-active-border-color:#037b47 !important;
+}
+
+.hss{
+    max-height: 188px;
+}
+
+.crop-text-2 {
+    -webkit-line-clamp: 3;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }

@@ -1,0 +1,134 @@
+.active{
+    border: none;
+    border-bottom: 0px;
+    text-align: start;
+    border-radius: 0; 
+}
+
+.active:active{
+    border: none;
+    border-bottom: 0px;
+}
+
+.accordion-button{
+    color: dimgrey;
+}
+
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed){
+    box-shadow: none;
+    background-color: white;
+    color: dimgrey;
+}
+
+
+
+.container-main{
+    max-width: 1180px !important;
+}
+
+.container-sec{
+    max-width: 1120px;
+}
+
+
+.img-h{
+    max-height:230px;
+}
+
+.text-all-end{
+    text-align: end;
+}
+
+.text-color-demigray{
+    color: dimgray;
+}
+
+.desc{
+    text-align: justify;
+     color:#353839 ;
+}
+
+.crop-text-1 {
+    -webkit-line-clamp: 6;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  .addres{
+    margin-top: -5px; 
+    color:dimgray;
+  }
+
+  .filter1{
+    text-align: start !important;
+    border-top-right-radius: 0 !important; 
+    border-bottom-right-radius: 0 !important; 
+    border-color: gainsboro !important; 
+    background-color: white !important; 
+    color: dimgray !important;
+  }
+
+  .filter2{
+    text-align: start !important; 
+    border-radius: 0 !important; 
+    border-color: gainsboro !important; 
+    background-color: white !important; 
+    color: dimgray !important; 
+  }
+
+  .filter3{
+    text-align: start !important; 
+    border-radius: 0 !important; 
+    border-color: gainsboro !important; 
+    background-color: white !important; 
+    color:dimgray !important; 
+  }
+
+  .filter4{
+    border-bottom-left-radius: 0 !important; 
+    border-top-left-radius: 0 !important; 
+    border-color: gainsboro !important; 
+  }
+  
+  .text-jus{
+    text-align: justify;
+  }
+
+  .btn-cl{
+    --bs-btn-bg: #04b065 !important;
+    --bs-btn-border-color:#04b065 !important;
+    --bs-btn-hover-bg: #049e5b !important;
+    --bs-btn-hover-border-color:#049e5b !important;
+    --bs-btn-active-bg:#037b47 !important;
+    --bs-btn-active-border-color:#037b47 !important;
+}
+
+.form-control:focus {
+    border-color: #04b065 !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+} 
+
+.form-check-input:focus {
+    border-color: #04b065 !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+} 
+
+.form-check-input:checked{
+    background-color: #04b065 !important;
+    border-color: #04b065 !important;
+}
+
+.iSize{
+    height: 30px;
+    width: 30px;
+}
+
+.hnn{
+    max-height: 255px;
+}
