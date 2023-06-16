@@ -17,6 +17,9 @@ export const Search = () => {
     const [uperPrice, setUperPrice] = useState("");
     const [response, setResponse] = useState([]);
     const [city, setCity] = useState("");
+    const [rooms, setRooms] = useState("");
+    const [apartmentType, setapartmentType] = useState("");
+
 
     function callYourAPI() {
         ApartmentClient.get("/search/", {
@@ -24,6 +27,8 @@ export const Search = () => {
                 Address: city,
                 PriceFrom: lowerPrice,
                 PriceUntil: uperPrice,
+                RoomsCount: rooms,
+                ApartmentType: apartmentType,
             }
         }).then((res) => {
             setResponse(res.data);
@@ -47,45 +52,45 @@ export const Search = () => {
                             <div className="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
 
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setapartmentType("Квартира в новостройке")} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         Квартира в новостройке
                                     </label>
                                 </div>
                                 <div className="form-check pt-1 pb-1">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setapartmentType("Квартира во вторичке")} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         Квартира во вторичке
                                     </label>
                                 </div>
                                 <hr className="mt-1 mb-1" />
                                 <div className="form-check pt-1">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setapartmentType("Комната")} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         Комната
                                     </label>
                                 </div>
                                 <div className="form-check pt-1 pb-1">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setapartmentType("Доля")} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         Доля
                                     </label>
                                 </div>
                                 <hr className="mt-1 mb-1" />
                                 <div className="form-check pt-1">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setapartmentType("Дом")} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         Дом
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setapartmentType("Таунхаус")} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         Таунхаус
                                     </label>
                                 </div>
                                 <div className="form-check pt-1 pb-1">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setapartmentType("Участок")} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         Участок
                                     </label>
@@ -102,40 +107,40 @@ export const Search = () => {
                             <div className="dropdown-menu p-3" aria-labelledby="dropdownMenuButton2">
 
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setRooms(1)} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         1
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setRooms(2)} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         2
                                     </label>
                                 </div>
 
                                 <div className="form-check ">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setRooms(3)} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         3
                                     </label>
                                 </div>
                                 <div className="form-check ">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setRooms(4)} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         4
                                     </label>
                                 </div>
 
                                 <div className="form-check ">
-                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setRooms(5)} className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         5
                                     </label>
                                 </div>
 
                                 <div className="form-check pb-1">
-                                    <input className="form-check-input text-color-demigray" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input onChange={(evt) => setRooms(6)} className="form-check-input text-color-demigray" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label text-color-demigray" for="flexCheckDefault" >
                                         6+
                                     </label>
@@ -174,7 +179,7 @@ export const Search = () => {
                     <div className="row">
                         <div className="col-12 col-sm-12 col-md-12 col-lg-5">
                             <Link to={"/" + item.id + "/" + item.userId}>
-                                <img className="rounded max-1 w-100 hnn" src={"images/img_test" + item.documents[0].url + ".jpg"} /></Link>
+                                <img className="rounded max-1 w-100 hnn" src={item.documents[1].url} /></Link>
                         </div>
 
                         <div className="col-12 col-sm-12 col-md-12 col-lg-7">
@@ -196,71 +201,6 @@ export const Search = () => {
                 </div>
             </div>
         </div>))}
-        {/* {response.map((item, index) => (<div key={index}>
-            <div className="container pt-2 container-main mb-2">
-                <div className="card p-4">
-                    <div className="row">
-
-                        <div className="col-12 col-sm-12 col-md-12 col-lg-7">
-                            <div className="row">
-                                <div className="col-8 ">
-                                    <p className="h4">Объявление № 234</p>
-                                </div>
-                                
-                                <div className="col-sm-12 col-md-12 col-lg-8 p-0 pe-2 ps-1 ">
-                                    <input className="form-control border"
-                                        placeholder="Вставьте ссылку..." />
-
-                                </div>
-                                <div className="col-sm-12 col-md-12 col-lg-4 text-end p-0" >
-                                    <button type=" button" className=" bt-t btn btn-primary w-100 btn-cl">Добавить</button>
-                                </div>
-                                <div className="col text-end p-2 ps-1" >
-                                    <button type=" button" className=" bt-t btn btn-primary w-100 btn-cl">Скачать планировку</button>
-                                </div>
-                                <div className="col text-end p-2 ps-0" >
-                                    <button type=" button" className=" bt-t btn btn-primary w-100 btn-cl">Перейти к объявлению</button>
-                                </div>
-                                <div className="col-sm-12 col-md-12 col-lg-4 text-end p-0 pt-2" >
-                                    <button type=" button" className=" bt-t btn btn-primary w-100 btn-cl">Завершить</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>))}
-        {response.map((item, index) => (<div key={index}>
-            <div className="container pt-2 container-main mb-2">
-                <div className="card p-4">
-                    <div className="row">
-                        <p className="h4 col-8">Жалоба от пользователя Владимир</p> 
-                        <div className="col-4"><button type="button" class="btn btn-outline-danger float-end">Заблокировать объявление</button></div>
-                        <div className="col-12 mb-5 mb-sm-3 mb-md-3 mb-lg-3 pt-2 crop-text-1 text-jus">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-                        <hr className="" />
-                        <div className="col-12 col-sm-12 col-md-12 col-lg-5">
-                            <Link to={"/" + item.id + "/" + item.userId}>
-                                <img className="rounded max-1 w-100" src="images/img_test.jpg" /></Link>
-                        </div>
-
-                        <div className="col-12 col-sm-12 col-md-12 col-lg-7">
-                            <div className="row">
-                                <div className="col-10">
-                                    <p className="h4">{item.title}</p>
-                                    <p className="h6 addres">{item.address}</p>
-                                    <p className="h3 mt-2 mb-2">{item.price} ₽</p>
-                                </div>
-
-                                <div className="col-12 mb-5 mb-sm-3 mb-md-3 mb-lg-0 pt-2 crop-text-1 text-jus">
-                                    {item.description}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>))} */}
+       
     </div>);
 }

@@ -27,8 +27,8 @@ export const Login = () => {
             {
                   getUser(); 
                   navigate("/search");
-                  await delay(100);
-                //window.location.reload();
+                  await delay(50);
+                  window.location.reload();
             }
             else{
                 console.log("false responce:" + response);
@@ -44,13 +44,9 @@ export const Login = () => {
             }
         })
             localStorage.setItem("user", JSON.stringify(us.data));
-            console.log(us.data);
-         
+        
     }
 
-    // useEffect(() => {
-    //     navigate("/search");
-    // }, [user]);
 
 
     return (<div className="container d-flex justify-content-center mt-4 mb-3">

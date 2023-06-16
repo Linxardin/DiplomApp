@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Navigate , useNavigate } from 'react-router-dom';
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { ApartmentClient } from "../../API/Apartment/ApartmentApi";
 import { FavoritePostsClient } from "../../API/FavoritePosts/FavoritePostsAPI";
 import { UserClient } from "../../API/User/UserApi";
-import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-import axios from "axios";
 import { Collapse } from "bootstrap";
 import "./UserProfile.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -28,10 +26,10 @@ export const UserProfile = () => {
 
     const delay = ms => new Promise(
         resolve => setTimeout(resolve, ms)
-      );
+    );
 
-      useState(() => {console.log("1" + fav)},[fav]);
-      
+    useState(() => { console.log("1" + fav) }, [fav]);
+
     const callYourAPI = async () => {
         const resp = await UserClient.get("/" + userId);
         setUser(resp.data);
@@ -41,15 +39,14 @@ export const UserProfile = () => {
                 userId: userId,
             }
         });
-        // console.log(apResp.data);
         setResponse(apResp.data);
         const favResp = await FavoritePostsClient.get("/by-user/" + userId);
         const data = JSON.stringify(favResp.data);
         const array = JSON.parse(data);
         let a = [];
-        array.map((el) => 
+        array.map((el) =>
             ApartmentClient.get("/" + el.apartmentId).then(((resp) => a.push(resp.data))
-        ))
+            ))
         setDataArray(a);
         setFav(array);
     }
@@ -62,7 +59,7 @@ export const UserProfile = () => {
     }
 
     function getApartment(data) {
-       
+
         return (
             <div className="container pt-2 container-main ps-0 pe-0">
                 <div className="card p-4">
@@ -95,17 +92,7 @@ export const UserProfile = () => {
 
     useEffect(() => {
         callYourAPI();
-        // const result = localStorage.getItem("user");
-        // // console.log(result);
-        // //  console.log(state);
-        // if (result) {
-        //     setUser(result);
-        //     setState(true);
-        //     //  console.log(user);
-        // }
-        // else {
-        //     setState(false);
-        // }
+
     }, []);
 
 
@@ -114,9 +101,9 @@ export const UserProfile = () => {
     return (<div className="container mt-4 mb-3 container-main ">
         <div className="row">
             <div className="col-9 pe-0">
-                <button onClick={() => setIsModified(true)}  type="submit" className="btn mb-2 btn-primary btn-cl col-3">Мои обьявления</button>
-                <button onClick={() => setIsModified(false)}  type="submit" className="ms-3 mb-2 btn btn-primary btn-cl col-3">Избранные обьявления</button>
-                
+                <button onClick={() => setIsModified(true)} type="submit" className="btn mb-2 btn-primary btn-cl col-3">Мои обьявления</button>
+                <button onClick={() => setIsModified(false)} type="submit" className="ms-3 mb-2 btn btn-primary btn-cl col-3">Избранные обьявления</button>
+
                 {isModified ? (<> {response.map((item, index) => (<div key={index}>
                     <div className="container pt-2 container-main ps-0 pe-0">
                         <div className="card p-4">
@@ -145,44 +132,14 @@ export const UserProfile = () => {
                         </div>
                     </div>
                 </div>))}</>) : (<>
-                    {fav === undefined || null ?(<></>):fav.map((item, index) => { return(<div key={index}>
-                    {apartmentDataArray.map((el) => getApartment(el))}
-                </div>)})} 
-                {/* <div className="container pt-2 container-main ps-0 pe-0">
-                <div className="card p-4">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-12 col-lg-5">
-                           
-                                <img className="rounded max-1 w-100" src="../images/img_test1.jpg" />
-                        </div>
+                    {fav === undefined || null ? (<></>) : fav.map((item, index) => {
+                        return (<div key={index}>
+                            {apartmentDataArray.map((el) => getApartment(el))}
+                        </div>)
+                    })}
 
-                        <div className="col-12 col-sm-12 col-md-12 col-lg-7">
-                            <div className="row">
-                                <div className="col-10">
-                                    <p className="h4">Продажа 2-х комнатной квартиры</p>
-                                    <p className="h6 addres">г. Москва, ул. Ленина 25, кв. 4</p>
-                                    <p className="h4 mt-2 mb-2">6000000 ₽</p>
-                                </div>
-                                <div className="col-2">
-                                    <FaHeart className="iSize mt-1 float-end" />
-                                </div>
-                                <div className="col-12 mb-5 mb-sm-3 mb-md-3 mb-lg-0 pt-2 crop-text-2 text-jus">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. jgbcfybt
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-            </>)}
-                
-               
+                </>)}
 
-                {/* {getApartment(1)} */}
-
-                 {/* {fav.map((item, index) => (<div key={index}>
-                    {getApartment(item.apartmentId)}
-                </div>))}  */}
             </div>
             <div className="col-3">
                 <div className="card pt-3 pb-1 px-3 sticky-top sticky">

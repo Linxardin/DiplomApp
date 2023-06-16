@@ -17,6 +17,7 @@ export const Item = () => {
     const [response, setResponse] = useState("");
     const [user, setUser] = useState("");
     const [cord, setCord] = useState("");
+    const [point, setPoint] = useState([]);
 
 
     function callYourAPI() {
@@ -52,19 +53,18 @@ export const Item = () => {
         {
             callYourAPI();
             console.log(cord);
-            let addres = "Таганрог Энгельса";
-            // axios.get("https://geocode-maps.yandex.ru/1.x", {
-            //     params: {
-            //         geocode: {addres},
-            //         apikey: "04268b56-cecc-43fc-b834-c08c2b3d8ebb",
-            //         format: "json",
-            //     }
-            // })
-            //     .then(res => {
-            //         const str = res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
-            //         const point = str.split(' ');
-            //         console.log(point);
-            //     })
+            axios.get("https://geocode-maps.yandex.ru/1.x", {
+                params: {
+                    geocode: response.addres,
+                    apikey: "04268b56-cecc-43fc-b834-c08c2b3d8ebb",
+                    format: "json",
+                }
+            })
+                .then(res => {
+                    const str = res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
+                    const poin = str.split(' ');
+                    setPoint(poin);
+                })
         }
 
     },
@@ -128,15 +128,15 @@ export const Item = () => {
                             <h6 className="text-color-demigray" >Площадь</h6>
                         </div>
                         <div className="col-3">
-                            <h5>30 м<sup>2</sup></h5>
+                            <h5>{response.totallyArea} м<sup>2</sup></h5>
                             <h6 className="text-color-demigray" >Жилая</h6>
                         </div>
                         <div className="col-3">
-                            <h5>9 м<sup>2</sup></h5>
+                            <h5>{response.kitchenSquare} м<sup>2</sup></h5>
                             <h6 className="text-color-demigray" >Кухня</h6>
                         </div>
                         <div className="col-3">
-                            <h5>3 из 9</h5>
+                            <h5>{response.floor} из {response.floors}</h5>
                             <h6 className="text-color-demigray" >Этаж</h6>
                         </div>
                     </div>
@@ -157,26 +157,26 @@ export const Item = () => {
                             <p className="text-color-demigray" >Ремонт</p>
                         </div>
                         <div className="col-6">
-                            <p className="mt-2">Вторичка</p>
-                            <p>3 м</p>
-                            <p>1</p>
-                            <p>1 балкон</p>
-                            <p>Косметический</p>
+                            <p className="mt-2">{response.apartmentType}</p>
+                            <p>{response.height} м</p>
+                            <p>{response.toiletsNumber}</p>
+                            <p>{response.withBalcony}</p>
+                            <p>{response.renovationKind}</p>
                         </div>
                     </div>
                 </div>
                 <div className="card p-4 mb-3">
                     <h5 className="mb-3 text-w-600">Планировка</h5>
-                    <iframe src="https://planner5d.com/v?key=a07270a1e4f2217c8896adbde13eadb4&viewMode=3d" className="dView" allowfullscreen></iframe>
+                    <iframe src={response.document[0].url} className="dView" allowfullscreen></iframe>
                 </div>
 
                 <div className="card p-4 mh">
                     <h5 className="mb-3 text-w-600">Местоположение</h5>
                     <YMaps>
                         <Map
-                            defaultState={{ center: [47.2020012, 38.921136], zoom: 16 }} width="100%" height="100%"
+                            defaultState={{ center: [point[1], point[2]], zoom: 16 }} width="100%" height="100%"
                         >
-                            <Placemark geometry={[47.2020012, 38.921136]} />
+                            <Placemark geometry={[point[1], point[2]]} />
                         </Map>
                     </YMaps>
                 </div>

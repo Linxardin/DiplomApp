@@ -17,35 +17,43 @@ export const Creation = () => {
     const [square, setSquare] = useState("");
     const [height, setHeight] = useState("");
     const [address, setAddress] = useState("");
-    const [withBalcony, setWithBalcony] = useState("true");
+    const [totalyArea, settotalyArea] = useState("");
+    const [ceilingHeight, setceilingHeight]= useState("1");
+    const [renovationKind, setrenovationKind]= useState("");
+    const [apartmentStateType, setapartmentStateType]= useState("");
+    const [toiletsCount, settoiletsCount]= useState("");
+    const [apartmentType, setapartmentType]= useState("");
+    const [floors, setfloors]= useState("");
+    const [kitchenSquare, setkitchenSquare]= useState("");
+    const [haveBalcony, sethaveBalcony] = useState("true");
     const [response, setResponse] = useState("");
 
     function callYourAPI() {
         ApartmentClient.post("/", {
             userId: 1,
-  title: "Квартира 1 комнатная у моря",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            price: 2000000,
-            floor: 3,
-            rooms: 1,
-            square: 35,
-            height: 3,
-            haveBalcony: "1 балкон",
-            address: "г. Таганрог, ул. Энгельса 32",
-            totalyArea: 35,
-            ceilingHeight: 3,
-            renovationKind: "Косметический",
-            apartmentStateType: "Buy",
-            toiletsCount: 1,
-            apartmentType: "Квартира",
+            title: title,
+            description: description,
+            price: price,
+            floor: floor,
+            rooms: rooms,
+            square: square,
+            height: height,
+            haveBalcony: haveBalcony,
+            address: address,
+            totalyArea: totalyArea,
+            ceilingHeight: "1",
+            renovationKind: renovationKind,
+            apartmentStateType: apartmentStateType,
+            toiletsCount: toiletsCount,
+            apartmentType: apartmentType,
             documents: [
                 {
                     url: "3",
                     type: "string"
                 }
             ],
-            floors: 9,
-            kitchenSquare: 9,
+            floors: floors,
+            kitchenSquare: kitchenSquare,
             postType: "string"
 
         }).then((res) => {
@@ -64,8 +72,8 @@ export const Creation = () => {
                 <div className="col-5">
                     <select className="form-select input-form">
                         <option hidden selected>Выберите тип объявления</option>
-                        <option>Купить</option>
-                        <option>Снять</option>
+                        <option onChange={(evt) => setapartmentStateType("Buy")}>Продажа</option>
+                        <option onChange={(evt) => setapartmentStateType("Rent")}>Аренда</option>
                     </select>
                 </div>
             </div>
@@ -75,9 +83,9 @@ export const Creation = () => {
                 <div className="col-5">
                     <select className="form-select input-form">
                         <option hidden selected>Выберите тип недвижимости</option>
-                        <option>Квартира</option>
-                        <option>Дом</option>
-                        <option>Участок</option>
+                        <option onChange={(evt) => setapartmentType("Квартира")}>Квартира</option>
+                        <option onChange={(evt) => setapartmentType("Дом")}>Дом</option>
+                        <option onChange={(evt) => setapartmentType("Участок")}>Участок</option>
                     </select>
                 </div>
             </div>
@@ -100,7 +108,7 @@ export const Creation = () => {
             <div className="row mt-3">
                 <p className="h6 col-3 m-0 pt-3">Общая площадь</p>
                 <div className="col-5 pt-2">
-                    <input onChange={(evt) => setSquare(evt.target.value)} type="text" className="form-control input-form"
+                    <input onChange={(evt) => settotalyArea(evt.target.value)} type="text" className="form-control input-form"
                         id="exampleDropdownFormEmail1" />
 
                 </div>
@@ -110,7 +118,7 @@ export const Creation = () => {
             <div className="row mt-3">
                 <p className="h6 col-3 m-0 pt-3">Жилая</p>
                 <div className="col-5 pt-2">
-                    <input type="text" className="form-control input-form"
+                    <input onChange={(evt) => setSquare(evt.target.value)} type="text" className="form-control input-form"
                         id="exampleDropdownFormEmail1" />
 
                 </div>
@@ -120,7 +128,7 @@ export const Creation = () => {
             <div className="row mt-3">
                 <p className="h6 col-3 m-0 pt-3">Кухня</p>
                 <div className="col-5 pt-2">
-                    <input type="text" className="form-control input-form"
+                    <input onChange={(evt) => setkitchenSquare(evt.target.value)} type="text" className="form-control input-form"
                         id="exampleDropdownFormEmail1" />
 
 
@@ -143,7 +151,7 @@ export const Creation = () => {
             <div className="row mt-3">
                 <p className="h6 col-3 m-0 pt-3">Всего этажей в доме</p>
                 <div className="col-5 pt-2">
-                    <input type="text" className="form-control input-form"
+                    <input onChange={(evt) => setfloors(evt.target.value)} type="text" className="form-control input-form"
                         id="exampleDropdownFormEmail1" />
 
 

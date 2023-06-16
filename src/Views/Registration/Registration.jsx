@@ -17,23 +17,13 @@ export const Registration = () => {
             password: password,
             email: email,
             phone: phone,
+            type: 1,
         }).then((res) => {
             setResponse(res.data);
-            alert(email + " " + password + " " + name + " +" + phone + " RESPONSE: " + res.data);
         });
     }
 
-    function callYourAPI1() {
-        UserClient.post("/register/", {
-            name: name,
-            password: password,
-            email: email,
-            phone: phone,
-        }).then((res) => {
-            setResponse(res.data);
-            alert(email + " " + password + " " + name + " +" + phone + " RESPONSE: " + res.data);
-        });
-    }
+
 
     return (<div className="container mt-4 mb-3">
 
@@ -62,12 +52,7 @@ export const Registration = () => {
                             placeholder="Пароль" />
                     </div>
                 <div className="mb-4">
-                    <div className="form-check">
-                        <input type="checkbox" className="form-check-input" id="dropdownCheck" />
-                        <label className="form-check-label" for="dropdownCheck">
-                            Даю свое согласие на обработку персональных данных
-                        </label>
-                    </div>
+
                 </div>
                 <div className="row">
                     <div className="col-6">

@@ -17,7 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
-        <React.StrictMode>
+   
             <Navbar />
             <Routes>
                 <Route path="/login" element={<Login />} />
@@ -29,7 +29,7 @@ root.render(
                 <Route path="/user/:userId" element={<UserProfile />} />
                 <Route path="/admin" element={<Admin />} />
             </Routes>
-        </React.StrictMode>
+    
     </BrowserRouter>
 );
 
